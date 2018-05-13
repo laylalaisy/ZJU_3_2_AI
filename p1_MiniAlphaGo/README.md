@@ -54,5 +54,132 @@ https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html
 http://www.runoob.com/python/python-gui-tkinter.html   
 https://docs.python.org/2/library/tkinter.html   
 #### button:
-https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/button.html    
+https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/button.html  
+
+
+## Notes:
+### MVC
+MVC模式的意思是，软件可以分成三个部分。  
+     • 视图（View）：用户界面。  
+     • 控制器（Controller）：业务逻辑  
+     • 模型（Model）：数据保存  
+     
+各部分之间的通信方式如下。   
+     1. View 传送指令到 Controller  
+     2. Controller 完成业务逻辑后，要求 Model 改变状态  
+     3. Model 将新的数据发送到 View，用户得到反馈  
+所有通信都是单向的。   
+https://blog.csdn.net/tinym87/article/details/6957438
+
+
+### event
+对于想使用event的情况，像btn.bind("<Button-1>", handler)，又该怎么办呢，好说再写个中间适配器函数。event 会自动传到里面的函数   
+```python
+#coding=utf-8  
+import Tkinter  
+def handler(event, a, b, c):  
+    '''''事件处理函数'''  
+    print event  
+    print "handler", a, b, c  
+def handlerAdaptor(fun, **kwds):  
+    '''''事件处理函数的适配器，相当于中介，那个event是从那里来的呢，我也纳闷，这也许就是python的伟大之处吧'''  
+    return lambda event,fun=fun,kwds=kwds: fun(event, **kwds)  
+if __name__=='__main__':  
+    root = Tkinter.Tk()  
+    btn = Tkinter.Button(text=u'按钮')  
+# 通过中介函数handlerAdaptor进行事件绑定  
+    btn.bind("<Button-1>", handlerAdaptor(handler, a=1, b=2, c=3))  
+btn.pack()  
+    root.mainloop()  
+``` 
+来自 <https://www.zhihu.com/question/42879591/answer/332029110>    
+
+
+### canvas 
+https://blog.csdn.net/pengzhi5966885/article/details/77774820 
+
+
+### python对绑定事件的鼠标、按键的判断
+当多个事件绑定了同一个命令，那么在命令内部根据不同的事件进行处理的时候，怎么确定哪个事件发生了呢，用下面的来检测，经过测试处理tab键和alt键不能识别，其他单个都能被识别。    
+还有个事件的type属性，这个经过测试键盘事件返回字符2，鼠标返回字符2，可以根据这个再进行判断反会的是键盘事件还是鼠标事件。   
+```python
+# <Button-1>：鼠标左击事件
+# <Button-2>：鼠标中击事件
+# <Button-3>：鼠标右击事件
+# <Double-Button-1>：双击事件
+# <Triple-Button-1>：三击事件
+from tkinter import *
+tk = Tk()
+canvas = Canvas(width=500,height=500)
+canvas.pack()
+#canvas.create_polygon(0,0,250,250,fill = 'red')
+def echo_event(evt):
+    #打印键盘事件
+    if evt.type == "2":
+        print("键盘：%s" % evt.keysym)
+    #打印鼠标操作
+    if evt.type == "4":
+        print("鼠标： %s" % evt.num)
+    #
+    print(evt.type)
+```
+```python
+	# 导入tkinter包，为其定义别名tk
+	import tkinter as tk
+	 
+	# 定义Application类表示应用/窗口，继承Frame类
+	class Application(tk.Frame):
+	    # Application构造函数，master为窗口的父控件
+	    def __init__(self, master=None):
+	        # 初始化Application的Frame部分
+	        tk.Frame.__init__(self, master)
+	        # 显示窗口，并使用grid布局
+	        self.grid()
+	        # 创建控件
+	        self.createWidgets()
+	 
+	    # 创建控件
+	    def createWidgets(self):
+	        # 创建一个文字为'Quit'，点击会退出的按钮
+	        self.quitButton = tk.Button(self, text='Quit', command=self.quit)
+	        # 显示按钮，并使用grid布局
+	        self.quitButton.grid()
+	 
+	# 创建一个Application对象app
+	app = Application()
+	# 设置窗口标题为'First Tkinter'
+	app.master.title = 'First Tkinter'
+	# 主循环开始
+	app.mainloop()
+```
+来自 <https://www.cnblogs.com/collectionne/p/6885066.html>     
+
+
+### 文件读取+写出
+```python
+ #dumps功能
+ import pickle
+ data = ['aa', 'bb', 'cc']  
+ # dumps 将数据通过特殊的形式转换为只有python语言认识的字符串
+ p_str = pickle.dumps(data)
+ print(p_str)            
+ b'\x80\x03]q\x00(X\x02\x00\x00\x00aaq\x01X\x02\x00\x00\x00bbq\x02X\x02\x00\x00\x00ccq\x03e.
+ # loads功能
+ # loads  将pickle数据转换为python的数据结构
+ mes = pickle.loads(p_str)
+ print(mes)
+ ['aa', 'bb', 'cc']
+ # dump功能
+ # dump 将数据通过特殊的形式转换为只有python语言认识的字符串，并写入文件
+ with open('D:/tmp.pk', 'w') as f:
+     pickle.dump(data, f)
+ # load功能
+ # load 从数据文件中读取数据，并转换为python的数据结构
+ with open('D:/tmp.pk', 'r') as f:
+     data = pickle.load(f)
+```
+来自 <https://www.cnblogs.com/lincappu/p/8296078.html> 
+
+
+
 
