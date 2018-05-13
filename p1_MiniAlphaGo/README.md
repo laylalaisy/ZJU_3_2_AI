@@ -41,5 +41,18 @@
 
 ## Ref：
 #### Github：
-
+https://github.com/kaychintam/MiniAlphaGo   
+https://github.com/avartia/miniAlphaGo-for-Reversi   
+#### 蒙特卡洛树搜索MCTS：
+https://zhuanlan.zhihu.com/p/25345778   
+https://zhuanlan.zhihu.com/p/26335999   
+https://zhuanlan.zhihu.com/p/34990220   
+#### TKinter:
+http://effbot.org/tkinterbook/   
+https://www.cnblogs.com/collectionne/p/6885066.html   
+https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html   
+http://www.runoob.com/python/python-gui-tkinter.html   
+https://docs.python.org/2/library/tkinter.html   
+#### button:
+https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/button.html    
 
