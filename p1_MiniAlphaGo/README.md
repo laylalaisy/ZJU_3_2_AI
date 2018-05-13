@@ -12,7 +12,7 @@
 随着网络的普及，黑白棋作为一种最适合在网上玩的棋类游戏正在逐渐流行起来。   
 中国主要的黑白棋游戏站点有Yahoo游戏、中国游戏网、联众游戏等。   
 
-#### 游戏规则：
+### 游戏规则：
 1．	棋局开始时黑棋位于e4和d5，白棋位于d4和e5，如图所示。   
 2．	黑方先行，双方交替下棋。   
 3．	一步合法的棋步包括：在一个空格新落下一个棋子，并且翻转对手一个或多个棋子。   
@@ -25,7 +25,7 @@
 8．	棋局持续下去，直到棋盘填满或者双方都无合法棋步可下。   
 9．	如果某一方落子时间超过1分钟，则判该方失败。   
 
-#### 程序基本要求：
+### 程序基本要求：
 1.	以小组为单位完成，小组组员最多2人；   
 2.	使用MCTS算法实现miniAlphaGo for Reversi；   
 3.	MCTS算法部分需要自己实现，尽量不使用现成的包，工具或者接口；   
@@ -34,26 +34,26 @@
 6.	使用语言不限；   
 7.	程序报告中需要说明每个人的分工与所完成的内容。   
 
-#### 实验Bonus   
+### 实验Bonus   
 1.	图形界面美观，可以参考已有软件实现相关功能；   
 2.	如有创新或者独到之处可以在报告中指出。   
 
 
 ## Ref：
-#### Github：
+### Github：
 https://github.com/kaychintam/MiniAlphaGo   
 https://github.com/avartia/miniAlphaGo-for-Reversi   
-#### 蒙特卡洛树搜索MCTS：
+### 蒙特卡洛树搜索MCTS：
 https://zhuanlan.zhihu.com/p/25345778   
 https://zhuanlan.zhihu.com/p/26335999   
 https://zhuanlan.zhihu.com/p/34990220   
-#### TKinter:
+### TKinter:
 http://effbot.org/tkinterbook/   
 https://www.cnblogs.com/collectionne/p/6885066.html   
 https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html   
 http://www.runoob.com/python/python-gui-tkinter.html   
 https://docs.python.org/2/library/tkinter.html   
-#### button:
+### button:
 https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/button.html  
 
 
