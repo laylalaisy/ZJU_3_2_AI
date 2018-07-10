@@ -1,4 +1,4 @@
-# AI2018 Checklist
+# Note
 forked from Toni Chan
 
 modified by laylalaisy
