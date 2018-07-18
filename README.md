@@ -23,6 +23,7 @@ Please try yourself and have fun working on those interesting projects!
 ## Homework Catalog
 1. p1: MiniAlphaGo with 蒙特卡洛树搜索MCTS
 2. p2: Restore Image with Gaussian Linear Regression
+3. p3: Localization Using Pytorch
 
 ## Attention:
 1. All codes and notes will be open source after my final test (in case of copy)
